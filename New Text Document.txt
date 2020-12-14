@@ -1,1 +1,8 @@
-asdsa
+STEPS :
+
+1. CREATE 2 FOLDERS - CLIENT, SERVER
+2. For client - 
+	cra client -> 
+	npm i react-router-dom 
+	(swich route) <- BrowserRouter 
+	
