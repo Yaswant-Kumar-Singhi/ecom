@@ -1,11 +1,11 @@
-import react from 'React';
+import React from 'react';
 
 const Register= ()=>{
-	return {
+	return (
 	  <div>
-		Login Page
+		Register Page
 	  </div>
-};
+);
 };
 
 export default Register;
