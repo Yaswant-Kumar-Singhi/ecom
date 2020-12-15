@@ -4,6 +4,7 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined, UserAddOutlined, UserO
 import { Link } from 'react-router-dom'
 
 
+
 const { SubMenu , Item } = Menu; //Menu.submenu
 
 const Header = () => {
@@ -22,11 +23,11 @@ const Header = () => {
                 <Link to="/"> Home </Link>
             </Item>
 
-            <Item key="register" icon={<UserAddOutlined />} style={{float:"right"}} >
+            <Item key="register" icon={<UserAddOutlined />} className = "float-right" >
                 <Link to="/register"> Register </Link>
             </Item>
 
-            <Item key="login" icon={<UserOutlined />} style={{float:"right"}}>
+            <Item key="login" icon={<UserOutlined />} className = "float-right">
                 <Link to="/login"> Login </Link>
             </Item>
 
