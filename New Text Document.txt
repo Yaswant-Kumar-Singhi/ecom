@@ -2,7 +2,19 @@ STEPS :
 
 1. CREATE 2 FOLDERS - CLIENT, SERVER
 2. For client - 
-	cra client -> 
-	npm i react-router-dom 
-	(swich route) <- BrowserRouter 
+	I) cra client -> 
+	   npm i react-router-dom 
+	   (swich route) <- BrowserRouter 
+
+	II)Ant design
+		npm i antd -> install ant design
+		npm i @ant-design/icons -> install ant logos
+		create a header file import above two and use fuction to use react hooks for state 
+		wrap it using fragments <></> ( which acts like a div)
+	
+	III) react router link
+		import Link from react-router-dom to navigate to our pages 
+		
+
+
 	
