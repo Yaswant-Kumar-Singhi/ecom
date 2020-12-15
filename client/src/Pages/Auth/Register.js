@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import {auth} from '../../firebase'
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/react-toastify.css'
 
 
 const Register= ()=>{
@@ -9,7 +12,7 @@ const Register= ()=>{
 	const [email,setEmail] = useState('')
 
 	const handleSbmit = () => {
-		//
+		
 	}
 
 

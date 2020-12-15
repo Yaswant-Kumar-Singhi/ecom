@@ -14,7 +14,13 @@ STEPS :
 	
 	III) react router link
 		import Link from react-router-dom to navigate to our pages 
-		
+
+	IV) Firebase auth
+		- use google console to get your app credentials
+		- create a file called firebase and paste your fibebase config
+		- install toastify (npm i react-toastify) for email notification
+
+
 
 
 	
