@@ -1,63 +1,74 @@
-import React,{useState} from 'react';
-import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined, UserAddOutlined, UserOutlined , LogoutOutlined} from '@ant-design/icons';
-import { Link } from 'react-router-dom'
-import firebase from 'firebase'
-import {useDispatch , useSelector} from 'react-redux'
-import {useHistory} from 'react-router-dom'
-import { toast } from 'react-toastify';
+import React, { useState } from "react";
+import { Menu } from "antd";
+import {
+  AppstoreOutlined,
+  SettingOutlined,
+  UserOutlined,
+  UserAddOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import firebase from "firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-
-const { SubMenu , Item } = Menu; //Menu.submenu
+const { SubMenu, Item } = Menu;
 
 const Header = () => {
-    //creating state and function to update the state
-    const [current, setCurrent] = useState('home');
-    let dispatch = useDispatch()
-    let history = useHistory()
+  const [current, setCurrent] = useState("home");
 
-    const handleClick = (e) =>{
-        setCurrent(e.key)
-    }
+  let dispatch = useDispatch();
+  let { user } = useSelector((state) => ({ ...state }));
 
-    const logout = () => {
-        firebase.auth().signOut();
-        dispatch({
-            type : "LOGOUT",
-            payload : null
-        })
-        toast.info(`Successfully Logged Out.`)
-        history.push("/login")
-    }
+  let history = useHistory();
 
-    return(
+  const handleClick = (e) => {
+    // console.log(e.key);
+    setCurrent(e.key);
+  };
 
-        <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+  const logout = () => {
+    firebase.auth().signOut();
+    dispatch({
+      type: "LOGOUT",
+      payload: null,
+    });
+    history.push("/login");
+  };
 
-            <Item key="home" icon={<AppstoreOutlined />}>
-                <Link to="/"> Home </Link>
-            </Item>
+  return (
+    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+      <Item key="home" icon={<AppstoreOutlined />}>
+        <Link to="/">Home</Link>
+      </Item>
 
-            <Item key="register" icon={<UserAddOutlined />} className = "float-right" >
-                <Link to="/register"> Register </Link>
-            </Item>
+      {!user && (
+        <Item key="register" icon={<UserAddOutlined />} className="float-right">
+          <Link to="/register">Register</Link>
+        </Item>
+      )}
 
-            <Item key="login" icon={<UserOutlined />} className = "float-right">
-                <Link to="/login"> Login </Link>
-            </Item>
+      {!user && (
+        <Item key="login" icon={<UserOutlined />} className="float-right">
+          <Link to="/login">Login</Link>
+        </Item>
+      )}
 
-            
-
-
-            <SubMenu key="user" icon={<SettingOutlined />} title="Usernmae">
-                    <Item key="setting:1">Login</Item>
-                    <Item key="setting:2">Register 2</Item>
-                    <Item icon={<LogoutOutlined />} onClick={logout}>Logout</Item>
-          </SubMenu>
-        
-      </Menu> 
-
-    );
+      {user && (
+        <SubMenu
+          icon={<SettingOutlined />}
+          title={user.email && user.email.split("@")[0]}
+          className="float-right"
+        >
+          <Item key="setting:1">Option 1</Item>
+          <Item key="setting:2">Option 2</Item>
+          <Item icon={<LogoutOutlined />} onClick={logout}>
+            Logout
+          </Item>
+        </SubMenu>
+      )}
+    </Menu>
+  );
 };
 
 export default Header;
