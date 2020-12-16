@@ -1,18 +1,29 @@
 import React,{useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-//import {auth} from '../../firebase'
-//import {toast, ToastContainer} from 'react-toastify'
-//import 'react-toastify/dist/react-toastify.css'
+import {auth} from '../../firebase'
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const Register= ()=>{
 
-	const h = "|"
+	
 
 	const [email,setEmail] = useState('')
 
-	const handleSbmit = () => {
+	const handleSbmit = async (e) => {
+		//handling after submit button is clicked
+		e.preventDefault();
+		const config = {
+			url : "http://localhost:3000/register/complete",
+			handleCodeInApp : true
+		}
 		
+		
+ 		await auth.sendSignInLinkToEmail(email , config)
+		toast.success(`Email link for registration is send to ${email}. Click to complete your verification`)
+		
+		window.localStorage.setItem('emailForRegistration',email)
+		setEmail("")
 	}
 
 
@@ -27,7 +38,7 @@ const Register= ()=>{
 				autoFocus
 				></input>
 			<br></br>
-			<button className="btn btn-success">Register {h} {email} </button>
+			<button className="btn btn-success">Register  </button>
 			</form>
 		
 );
@@ -40,6 +51,7 @@ const Register= ()=>{
 				<h4>
 					Register
 				</h4>
+					<ToastContainer />
 					{registerForm()}
 			
 			</div>
