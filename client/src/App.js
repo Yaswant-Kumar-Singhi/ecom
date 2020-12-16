@@ -7,6 +7,7 @@ import Register from "./Pages/Auth/Register";
 import Home from "./Pages/Home";
 import Header from '../src/components/nav/Header'
 import RegisterComplete from './Pages/Auth/RegisterComplete'
+import ForgotPassword from './Pages/Auth/ForgotPassword'
 
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -46,6 +47,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/register/complete" component={RegisterComplete} />
+        <Route exact path="/forgot/password" component={ForgotPassword} />
       </Switch>
     </>
   );

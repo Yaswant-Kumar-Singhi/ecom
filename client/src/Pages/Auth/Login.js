@@ -4,7 +4,8 @@ import {toast} from 'react-toastify'
 import { Card, Button } from 'antd';
 import { MailOutlined , GoogleOutlined } from '@ant-design/icons';
 import {useDispatch} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import {useHistory , Link} from 'react-router-dom'
+
 
 
 
@@ -120,6 +121,9 @@ const Login= ({history})=>{
 						size = "large"
 						> SignIn with Gmail
 					</Button>
+
+					<Link to="/forgot/password" className="float-right text-danger"> Forgot Password</Link>
+
 				</Card>				
 			
 			</div>
