@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {auth} from '../../firebase'
-import {toast, ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import {toast} from 'react-toastify'
+
 
 
 const Register= ()=>{
@@ -51,7 +51,7 @@ const Register= ()=>{
 				<h4>
 					Register
 				</h4>
-					<ToastContainer />
+					
 					{registerForm()}
 			
 			</div>
