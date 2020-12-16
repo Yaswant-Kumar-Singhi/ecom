@@ -35,6 +35,7 @@ const Register= ()=>{
 				className="form-control" 
 				value={email}
 				onChange={e => {setEmail(e.target.value)} }
+				placeholder = "Please type your Email Address"
 				autoFocus
 				></input>
 			<br></br>

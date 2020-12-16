@@ -1,9 +1,74 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {auth} from '../../firebase'
+import {toast} from 'react-toastify'
+import { Card, Button } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
 
-const Login = ()=>{
+
+
+
+const Login= ()=>{
+
+	const [email,setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	const handleSbmit = async (e) => {
+		//handling after submit button is clicked
+		
+	}
+
+
+	const loginForm = () => {
+		
+		return(
+			<form onSubmit={handleSbmit}>
+				<input type="email" 
+				className="form-control" 
+				value={email}
+				onChange={e => {setEmail(e.target.value)} }
+				placeholder = "Please type your Email Address"
+				autoFocus
+				></input>
+			<br></br>
+				<input type="password" 
+				className="form-control" 
+				value={password}
+				onChange={e => {setPassword(e.target.value)} }
+				placeholder = "Password"
+				autoFocus
+				autoFocus
+				></input>
+			<br />
+			<Button 
+			onClick = {handleSbmit}
+			type = "primary"
+			className = "mb-3"
+			block
+			shape = "round"
+			icon = {<MailOutlined/>}
+			size = "large"
+			disabled = {!email || password.length<6}
+			> Login with Email/Password </Button>
+			</form>
+		
+);
+	}
+
 	return (
-	  <div>
-		Login Page
+	  <div className="container p-5">
+		  <div className="row">
+	        <div className="col-md-6 offset-md-3">
+				<Card>
+				<h4>
+					Login Form
+				</h4>
+					
+					{loginForm()}
+				</Card>
+				
+			
+			</div>
+		  </div>
 	  </div>
 );
 };
