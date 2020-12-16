@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
-import {auth} from '../../firebase'
+import {auth, googleAuthProvider} from '../../firebase'
 import {toast} from 'react-toastify'
 import { Card, Button } from 'antd';
-import { MailOutlined } from '@ant-design/icons';
+import { MailOutlined , GoogleOutlined } from '@ant-design/icons';
 import {useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 
@@ -44,7 +44,27 @@ const Login= ({history})=>{
 		}
 		
 	}
-
+ 
+	const googleLogin = async () => {
+		auth
+		  .signInWithPopup(googleAuthProvider)
+		  .then(async (result) => {
+			const { user } = result;
+			const idTokenResult = await user.getIdTokenResult();
+			dispatch({
+			  type: "LOGGED_IN_USER",
+			  payload: {
+				email: user.email,
+				token: idTokenResult.token,
+			  },
+			});
+			history.push("/");
+		  })
+		  .catch((err) => {
+			console.log(err);
+			toast.error(err.message);
+		  });
+	  };
 
 	const loginForm = () => {
 		
@@ -87,14 +107,20 @@ const Login= ({history})=>{
 		  <div className="row">
 	        <div className="col-md-6 offset-md-3">
 				<Card>
-					{loading ? <h4>
-					 Loading..
-				</h4> : <h4>
-				Login Form
-				</h4>}
+					{loading ? <h4> Loading..</h4> : <h4> Login Form </h4>}
 					{loginForm()}
-				</Card>
-				
+
+					<Button 
+						onClick = {googleLogin}
+						type = "danger"
+						className = "mb-3"
+						block
+						shape = "round"
+						icon = {<GoogleOutlined/>}
+						size = "large"
+						> SignIn with Gmail
+					</Button>
+				</Card>				
 			
 			</div>
 		  </div>
