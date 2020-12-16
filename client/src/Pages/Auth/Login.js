@@ -3,17 +3,45 @@ import {auth} from '../../firebase'
 import {toast} from 'react-toastify'
 import { Card, Button } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
+import {useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 
 
 
 
-const Login= ()=>{
+const Login= ({history})=>{
 
 	const [email,setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [loading, setLoading] = useState(false);
+
+	let dispatch = useDispatch()
 
 	const handleSbmit = async (e) => {
 		//handling after submit button is clicked
+		e.preventDefault();
+		setLoading(true);
+		try{
+			const result = await auth.signInWithEmailAndPassword(email,password)
+			const {user} = result;
+			const idTokenResult = await user.getIdTokenResult()
+
+			dispatch({
+				type: "LOGGED_IN_USER",
+				payload: {
+				  email: user.email,
+				  token: idTokenResult.token,
+				}
+			})
+			history.push('/')
+			toast.success(`Successfully Logged In. Welcome ${user.email}`)
+		}
+		catch(error){
+			console.log(error);
+      		toast.error(error.message);
+      		setLoading(false);
+
+		}
 		
 	}
 
@@ -59,10 +87,11 @@ const Login= ()=>{
 		  <div className="row">
 	        <div className="col-md-6 offset-md-3">
 				<Card>
-				<h4>
-					Login Form
-				</h4>
-					
+					{loading ? <h4>
+					 Loading..
+				</h4> : <h4>
+				Login Form
+				</h4>}
 					{loginForm()}
 				</Card>
 				

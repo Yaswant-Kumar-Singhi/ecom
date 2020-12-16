@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import firebase from 'firebase'
 import {useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 
 const { SubMenu , Item } = Menu; //Menu.submenu
@@ -25,6 +26,7 @@ const Header = () => {
             type : "LOGOUT",
             payload : null
         })
+        toast.info(`Successfully Logged Out.`)
         history.push("/login")
     }
 
