@@ -20,6 +20,9 @@ STEPS :
 		- create a file called firebase and paste your fibebase config
 		- install toastify (npm i react-toastify) for email notification
 		- using firease email verification link -> takes to password creation page -> homepage
+		- adding forgot password feature
+		- solving user redirect issues
+		
 
 
 
