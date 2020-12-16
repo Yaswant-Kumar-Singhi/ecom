@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, UserAddOutlined, UserOutlined , LogoutOutlined} from '@ant-design/icons';
 import { Link } from 'react-router-dom'
 import firebase from 'firebase'
-import {useDispatch} from 'react-redux'
+import {useDispatch , useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
