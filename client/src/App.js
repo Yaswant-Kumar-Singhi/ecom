@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch,Route} from 'react-router-dom';
 
+
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import Home from "./Pages/Home";
