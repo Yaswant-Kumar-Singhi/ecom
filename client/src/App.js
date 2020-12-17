@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react'
 import {Switch,Route} from 'react-router-dom';
 
-
+//import
+//a
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import Home from "./Pages/Home";
