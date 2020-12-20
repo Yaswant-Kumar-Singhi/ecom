@@ -7,5 +7,6 @@
 ![](https://img.shields.io/badge/website-offline-lightgrey?style=for-the-badge&logo=appveyor) ![](https://img.shields.io/badge/MERN-STACK-red?style=for-the-badge&logo=appveyor) 
 
 ![](https://img.shields.io/badge/mongo-db-orange)
+![](https://img.shields.io/badge/express%20-js-orange)
 ![](https://img.shields.io/badge/node--lts%40latest-10.15.0-brightgreen)
 ![]()
