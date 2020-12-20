@@ -1,4 +1,5 @@
-# ECOM - MERN STACK PROJECT
+# ECOM - MERN STACK PROJECT 
+![made-with-Go](https://img.shields.io/badge/Made%20with-love-1f425f.svg) :sparkling_heart: :fire:
 
 
 
@@ -9,4 +10,4 @@
 ![](https://img.shields.io/badge/mongo-db-orange)
 ![](https://img.shields.io/badge/express%20-js-orange) 
 ![](https://img.shields.io/badge/react-js-orange) 
-![](https://img.shields.io/badge/node-js-orange) :zap: :sparkling_heart: :fire: :zap: :sparkling_heart: 
+![](https://img.shields.io/badge/node-js-orange) 
