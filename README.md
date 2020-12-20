@@ -1,7 +1,4 @@
-# ECOM - MERN STACK PROJECT 
-![made-with-Go](https://img.shields.io/badge/Made%20with-love-1f425f.svg) :sparkling_heart: :fire:
-
-
+# ECOM - MERN STACK PROJECT  ![made-with-Go](https://img.shields.io/badge/Made%20with-love-1f425f.svg?style=for-the-badge&logo=appveyor) 
 
 ![](https://img.shields.io/badge/version-1.0.1-orange?style=for-the-badge&logo=appveyor) ![](https://img.shields.io/badge/dependencies-up%20to%20date-success?style=for-the-badge&logo=appveyor) 
 ![](https://img.shields.io/badge/platform-win--32%20%7C%20win--64-lightgrey?style=for-the-badge&logo=appveyor)
